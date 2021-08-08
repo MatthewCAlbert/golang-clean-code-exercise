@@ -8,8 +8,8 @@ type transactions struct {
 func NewTransactions(d []int) Transactions {
 	data := make(map[int]int)
 
-	for k, v := range d {
-		data[k] = v
+	for i, v := range d {
+		data[i] = v
 	}
 
 	return &transactions{data: data}
