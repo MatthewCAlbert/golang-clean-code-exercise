@@ -23,3 +23,23 @@ func (t *transactions) Get(idx int) int {
 	}
 	return 0
 }
+
+func (t *transactions) GetTotal() int {
+	total := 0
+
+	for _, v := range t.data {
+		total += v
+	}
+
+	return total
+}
+
+func (t *transactions) GetTotalWithinRange(i, j int) int {
+	total := 0
+
+	for ; i <= j && i < len(t.data); i++ {
+		total += t.data[i]
+	}
+
+	return total
+}
