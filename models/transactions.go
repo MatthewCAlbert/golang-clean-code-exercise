@@ -1,19 +1,25 @@
 package models
 
 type transactions struct {
-        data map[int]int
+	data map[int]int
 }
 
-// TODO: implement this
 // i.e. go test is green
 func NewTransactions(d []int) Transactions {
-        data := make(map[int]int)
+	data := make(map[int]int)
 
-        return &transactions{data: data}
+	for k, v := range d {
+		data[k] = v
+	}
+
+	return &transactions{data: data}
 }
 
-// TODO: implement this
 // i.e. go test is green
 func (t *transactions) Get(idx int) int {
-        return 0
+	v, ok := t.data[idx]
+	if ok {
+		return v
+	}
+	return 0
 }
